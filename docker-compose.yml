@@ -1,0 +1,17 @@
+services:
+  discovery-service:
+    container_name: discovery-service
+    build:
+      context: .
+      dockerfile: Dockerfile
+    platform: linux/amd64
+    ports:
+      - "8761:8761"
+    volumes:
+      - .:/app
+    networks:
+      - dokploy-network
+
+networks:
+  dokploy-network:
+    external: true
